@@ -253,14 +253,36 @@ Tags are created automatically when a post is saved with new tag names. Slugs ar
 
 ## Deployment
 
+**Live Project:**  
+https://devhash-frontend.onrender.com
+
+**Frontend:**  
+https://devhash-frontend.onrender.com
+
+**Backend API:**  
+https://devhash-api.onrender.com
+
+**API Health Check:**  
+https://devhash-api.onrender.com/api/health
+
 **Database:** MongoDB Atlas. Set `MONGODB_URI` on the host.
 
-**Backend (Render / Railway):**
+### Backend (Render)
 
 - Root directory: `server`
 - Build: `npm install`
 - Start: `npm start`
-- Env: `MONGODB_URI`, `JWT_SECRET`, `PORT`, `CLIENT_URL` (your frontend origin)
+- Env: `MONGODB_URI`, `JWT_SECRET`, `PORT`, `CLIENT_URL`
+- `CLIENT_URL` is set to the deployed frontend origin.
+
+### Frontend (Render)
+
+- Root directory: `client`
+- Build: `npm run build`
+- Publish: `dist`
+- Env: `VITE_API_URL=https://devhash-api.onrender.com/api`
+
+SPA rewrites are included (`client/vercel.json` and `client/public/_redirects`). No localhost URLs are hard-coded for production; they come from environment variables.
 
 **Frontend (Vercel / Netlify):**
 
